@@ -3,9 +3,10 @@ from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
+import os
 
 app = Flask(__name__)
-app.secret_key = 'taskora-development-secret-key'
+app.secret_key = os.environ.get('SECRET_KEY') or os.urandom(32)
 
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5173",
