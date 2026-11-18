@@ -116,3 +116,13 @@ GitHub: [@sanjanasraj](https://github.com/sanjanasraj)
 ---
 
 *Built as a full-stack development project to practice React, Python, Flask, REST APIs, and database integration.*
+## Screenshots
+
+### Dashboard
+![Taskora Dashboard](screenshots/dashboard.png)
+
+### Add Task
+![Add Task](screenshots/add-task.png)
+
+### Task Management
+![Task Management](screenshots/task-management.png)
