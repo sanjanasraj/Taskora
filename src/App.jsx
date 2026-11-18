@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react'
 import './App.css'
+const API_URL = 'https://taskora-backend-5tn1.onrender.com';
 
 function App() {
   const [showForm, setShowForm] = useState(false)
@@ -42,7 +43,7 @@ function App() {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/me', {
+        const response = await fetch(`${API_URL}/api/me`, {
           credentials: 'include',
         })
 
@@ -51,7 +52,7 @@ function App() {
           setUser(userData)
 
           const tasksResponse = await fetch(
-            'http://localhost:5000/api/tasks',
+            `${API_URL}/api/tasks`,
             { credentials: 'include' }
           )
 
@@ -108,7 +109,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000${endpoint}`,
+        `${API_URL}${endpoint}`,
         {
           method: 'POST',
           headers: {
@@ -133,7 +134,7 @@ function App() {
       }
 
       const userResponse = await fetch(
-        'http://localhost:5000/api/me',
+        `${API_URL}/api/me`,
         { credentials: 'include' }
       )
 
@@ -141,7 +142,7 @@ function App() {
       setUser(loggedInUser)
 
       const tasksResponse = await fetch(
-        'http://localhost:5000/api/tasks',
+        `${API_URL}/api/tasks`,
         { credentials: 'include' }
       )
 
@@ -165,7 +166,7 @@ function App() {
   }
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:5000/api/logout', {
+      await fetch(`${API_URL}/api/logout`, {
         method: 'POST',
         credentials: 'include',
       })
@@ -191,7 +192,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/tasks', {
+      const response = await fetch(`${API_URL}/api/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -240,7 +241,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${editingTask.id}`,
+        `${API_URL}/api/tasks/${editingTask.id}`,
         {
           method: 'PUT',
           headers: {
@@ -288,7 +289,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${taskId}`,
+        `${API_URL}/api/tasks/${taskId}`,
         {
           method: 'DELETE',
           credentials: 'include',
@@ -592,7 +593,7 @@ function App() {
 
                 try {
                   const response = await fetch(
-                    `http://localhost:5000/api/tasks/${task.id}`,
+                    `${API_URL}/api/tasks/${task.id}`,
                     {
                       method: 'PUT',
                       headers: {
