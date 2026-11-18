@@ -1,2 +1,6 @@
+
 Flask
 Flask-Cors
+Flask-SQLAlchemy
+pg8000
+gunicorn
